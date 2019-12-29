@@ -13,4 +13,8 @@ Here's the 93rd generation finishing the game:
 
 ![](winning-AI-player.gif)
 
+Here's the same trained neural network playing Level-2 for the first time. (not perfect, but impressive how it's evolved)
+
+![](winning-AI-player-on-new-level.gif)
+
 Thanks to all the dependency libraries!
