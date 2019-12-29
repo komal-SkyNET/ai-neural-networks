@@ -9,4 +9,8 @@ NEAT algorithm(http://nn.cs.utexas.edu/downloads/papers/stanley.cec02.pdf) was u
 
 **Further work**: This solution seemed to converge quickly (well, relatively!) when population size was increased (to 150+) for some reason(that I'm still studying). For lower population sizes (20 or 30), the species seemed to stagnate across generations without any progress (despite running for days).
 
+Here's the 93rd generation finishing the game:
+
+![](winning-AI-player.gif)
+
 Thanks to all the dependency libraries!
