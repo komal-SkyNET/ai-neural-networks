@@ -20,12 +20,12 @@ class Worker(object):
         inx = int(inx/8)
         iny = int(iny/8)
 
-        net = neat.nn.RecurrentNetwork.create(self.genome, self.config)
+        net = neat.nn.FeedForwardNetwork.create(self.genome, self.config)
         current_max_fitness = 0
         fitness_current = 0
         frame = 0
         counter = 0
-
+        imgarray= []
         done = False
 
         while not done:
@@ -33,11 +33,13 @@ class Worker(object):
             frame += 1
             ob = cv2.resize(ob,(inx,iny)) # Ob is the current frame
             ob = cv2.cvtColor(ob, cv2.COLOR_BGR2GRAY) # convert to grayscale
-            # ob = np.reshape(ob,(inx,iny))
+            ob = np.reshape(ob,(inx,iny))
             
-            oned_image = ob.reshape(inx, iny).flatten()
+            imgarray = np.ndarray.flatten(ob)
+            imgarray = np.interp(imgarray, (0, 254), (-1, +1))
+
             # cv2.imshow('image', ob)
-            neuralnet_output = net.activate(oned_image) # Give an output for current frame from neural network
+            neuralnet_output = net.activate(imgarray) # Give an output for current frame from neural network
             ob, rew, done, info = self.env.step(neuralnet_output) # Try given output from network in the game
 
             fitness_current += rew
@@ -48,9 +50,12 @@ class Worker(object):
             else:
                 counter+=1
                 # count the frames until it successful
-
+            
+            if current_max_fitness >= 3106.0:
+                current_max_fitness += 100000
+                done = True
             # Train mario for max 250 frames
-            if done or counter == 250:
+            elif done or counter == 250:
                 done = True 
 
         print(fitness_current)
@@ -66,7 +71,7 @@ config = neat.Config(neat.DefaultGenome, neat.DefaultReproduction,
                      'config-feedforward')
 
 p = neat.Population(config)
-# p = neat.Checkpointer.restore_checkpoint('recurrent-network-checkpoint/neat-checkpoint-1599')
+p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-93')
 p.add_reporter(neat.StdOutReporter(True))
 stats = neat.StatisticsReporter()
 p.add_reporter(stats)

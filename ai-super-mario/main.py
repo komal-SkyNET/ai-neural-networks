@@ -20,7 +20,7 @@ def eval_genomes(genomes, config):
 
         # 20 networks
 
-        net = neat.nn.RecurrentNetwork.create(genome, config)
+        net = neat.nn.FeedForwardNetwork.create(genome, config)
         current_max_fitness = 0
         fitness_current = 0
         frame = 0
@@ -29,16 +29,17 @@ def eval_genomes(genomes, config):
         done = False
 
         while not done:
-            env.render()
-            frame = frame + 1
-
+            # env.render()
+            frame += 1
             ob = cv2.resize(ob,(inx,iny)) # Ob is the current frame
-            ob = cv2.cvtColor(ob, cv2.COLOR_BGR2GRAY) 
-            # ob = np.reshape(ob,(inx,iny))
+            ob = cv2.cvtColor(ob, cv2.COLOR_BGR2GRAY) # convert to grayscale
+            ob = np.reshape(ob,(inx,iny))
+            
+            imgarray = np.ndarray.flatten(ob)
+            imgarray = np.interp(imgarray, (0, 254), (-1, +1))
+
             # cv2.imshow('image', ob)
-            oned_image = ob.reshape(inx, iny).flatten()
-            # cv2.imshow('image', ob)
-            neuralnet_output = net.activate(oned_image) # Get an output for current frame from neural network
+            neuralnet_output = net.activate(imgarray) # Give an output for current frame from neural network
             ob, rew, done, info = env.step(neuralnet_output) # Try given output from network in the game
 
             fitness_current += rew
@@ -48,12 +49,17 @@ def eval_genomes(genomes, config):
                 counter = 0
             else:
                 counter+=1
+            
+            if current_max_fitness >= 3106.0:
+                current_max_fitness += 100000
+                done = True
+            # Train mario for max 250 frames
+            elif done or counter == 250:
+                print(genome_id,fitness_current)
+                done = True 
                 # count the frames until it successful
 
             # Train mario for max 250 frames
-            if done or counter == 250:
-                done = True 
-                print(genome_id,fitness_current)
             
             genome.fitness = fitness_current
 
@@ -61,7 +67,7 @@ config = neat.Config(neat.DefaultGenome, neat.DefaultReproduction,
                      neat.DefaultSpeciesSet, neat.DefaultStagnation,
                      'config-feedforward')
 p = neat.Population(config)
-# p = neat.Checkpointer.restore_checkpoint('recurrent-network-checkpoint/neat-checkpoint-3645')
+p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-93')
 p.add_reporter(neat.StdOutReporter(True))
 stats = neat.StatisticsReporter()
 p.add_reporter(stats)
