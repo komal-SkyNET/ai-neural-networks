@@ -59,11 +59,10 @@ class Genome:
     def crossover(parent_x, parent_y):
 
         child = Genome()
-
         #all nodes from fittest parent added to child
-        for _id, node in parent_x.node_genes:
+        for _id, node in parent_x.node_genes.items():
             child.node_genes[_id] = node.copy()
-        for x_innov_number, x_connection_gene in parent_x.connection_genes:
+        for x_innov_number, x_connection_gene in parent_x.connection_genes.items():
             if parent_y.connection_genes.get(x_innov_number, False):
                 #matching genes
                 if bool(r.getrandbits(1)):
@@ -71,8 +70,7 @@ class Genome:
                 else:
                     #use y connection
                     child.connection_genes[x_innov_number] = parent_y.connection_genes[x_innov_number].copy()
-
             else:
                 #disjoint excess genes
-                pass
-            
+                child.connection_genes[x_innov_number] = x_connection_gene.copy()
+        return child

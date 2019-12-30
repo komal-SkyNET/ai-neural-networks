@@ -1,4 +1,5 @@
 from enum import Enum
+import copy
 
 class NodeGene:
     HIDDEN=1
@@ -10,5 +11,5 @@ class NodeGene:
         self._id = _id
 
     def copy(self):
-        return NodeGene(self._id, self._type)
+        return copy.deepcopy(self)
     

@@ -1,4 +1,5 @@
 import random as r
+import copy
 
 class ConnectionGene:
     _INNOVATION_COUNTER = 0
@@ -15,4 +16,4 @@ class ConnectionGene:
         self.expressed = False
 
     def copy(self):
-        return ConnectionGene(self.in_node, self.out_node)
+        return copy.deepcopy(self)
