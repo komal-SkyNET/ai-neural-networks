@@ -1,7 +1,9 @@
 import random as r
 from connection_gene import ConnectionGene
 from node_gene import NodeGene
+
 class Genome:
+    _PROBABILITY_PERTURBED = 0.9
 
     def __init__(self):
         self.connection_genes = {}
@@ -20,7 +22,7 @@ class Genome:
         elif node_a.type == NodeGene.OUTPUT & node_b.type == NodeGene.INPUT:
             reverse = True
         
-        for innov_number, connection in self.connection_genes:
+        for connection in self.connection_genes.values():
             if node_a._id == connection.in_node & node_b._id == connection.out_node:
                 connection_exists = True
                 break
@@ -38,7 +40,7 @@ class Genome:
 
 
     def add_node_mutation(self):
-        con = self.connection_genes[r.randint(0, len(self.connection_genes))]
+        con = self.connection_genes[r.randint(0, len(self.connection_genes)-1)]
         node_in = con.in_node
         node_out = con.out_node
         con.disable()
@@ -57,13 +59,12 @@ class Genome:
     ## assume parent_x fittest
     @staticmethod 
     def crossover(parent_x, parent_y):
-
         child = Genome()
         #all nodes from fittest parent added to child
         for _id, node in parent_x.node_genes.items():
             child.node_genes[_id] = node.copy()
         for x_innov_number, x_connection_gene in parent_x.connection_genes.items():
-            if parent_y.connection_genes.get(x_innov_number, False):
+            if parent_y.connection_genes.get(x_innov_number):
                 #matching genes
                 if bool(r.getrandbits(1)):
                     child.connection_genes[x_innov_number] = x_connection_gene.copy()
@@ -74,3 +75,11 @@ class Genome:
                 #disjoint excess genes
                 child.connection_genes[x_innov_number] = x_connection_gene.copy()
         return child
+
+    def mutation(self):
+        for connections in self.connection_genes.items():
+            if r.random() > Genome._PROBABILITY_PERTURBED:
+                ##TODO: uniformly perturbed distribution?
+                connections.weight = r.uniform(-2,2) * connections.weight
+            else:
+                connections.weight = r.uniform(-2,2)
