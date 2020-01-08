@@ -1,6 +1,8 @@
+from custom_plot import Plot, plt
 import numpy as np
 import random as r
 import sys
+import copy
 
 def sigmoid(ip, derivate=False):
     if derivate:
@@ -14,6 +16,7 @@ class NeuralNet:
         self.inputLayers = 2
         self.outputLayer = 1
         self.bias = r.random()
+        self.plot1 = Plot()
     
     def setup(self):
         self.i = np.array([r.random(), r.random()], dtype=float).reshape(2,)
@@ -22,10 +25,11 @@ class NeuralNet:
     def forward_propogate(self):
         self.z = self.w*self.i
         self.o = sigmoid(sum(self.z)-self.bias)
+
     
     def optimize_cost(self, desired):
         i=0
-        current_cost = pow(desired - self.o, 2)
+        current_cost = 0.5*pow(desired - self.o, 2)
         for weight in self.w:
             dpdw =  -1*(desired-self.o) * (sigmoid(self.o, derivate=True)) * self.i[i]
             self.w[i] = self.w[i] - 2*dpdw
@@ -34,6 +38,9 @@ class NeuralNet:
         dpdB = -1*(desired-self.o) * (sigmoid(self.o, derivate=True)) * -1
         self.bias = self.bias - 2*dpdB
         self.forward_propogate()
+        self.plot1.Z_points.append(current_cost)
+        self.plot1.W1_points.append(self.w[0])
+        self.plot1.W2_points.append(self.w[1])
     
     def train(self, ip, op):
         self.i = np.array(ip).reshape(2,)
@@ -62,16 +69,23 @@ while not done:
             print("Network weights:{}, bias:{}".format(n.w, n.bias))
             done = True
             break
+n.plot1.draw_3d_lineplot(x_label='weight1', y_label='weight2', z_label='error')
+plot2 = Plot()
+plot2.W1_points = n.plot1.W1_points
+plot2.W2_points = n.plot1.W2_points
+plot2.Z_points = n.plot1.Z_points
+plot2.draw_3d_scatter_plot(x_label='weight1', y_label='weight2', z_label='error')
 
-while True:
-    print("-----")
-    print("Enter ip1 & 2")
-    ip1 = float(sys.stdin.readline())
-    ip2 = float(sys.stdin.readline())
-    print(ip1, ip2)
-    n.i = np.array([ip1, ip2]).reshape(2,)
-    n.forward_propogate()
-    print("network output:{}".format(n.o))
+plt.show()
+
+# while True:
+#     print("-----")
+#     print("Enter ip1 & 2")
+#     ip1 = float(sys.stdin.readline())
+#     ip2 = float(sys.stdin.readline())
+#     print(ip1, ip2)
+#     n.i = np.array([ip1, ip2]).reshape(2,)
+#     n.forward_propogate()
+#     print("network output:{}".format(n.o))
     
 
-    
