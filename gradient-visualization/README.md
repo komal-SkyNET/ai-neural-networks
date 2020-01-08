@@ -20,4 +20,4 @@ Excerpt from optimize cost function in simple.py:
   dpdB = -1*(desired-self.o) * (sigmoid(self.o, derivate=True)) * -1
         
 ```
-<img src="https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/weight_vs_cost.png" height="1200">
+![image](https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/weight_vs_cost.png)
