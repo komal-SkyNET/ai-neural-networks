@@ -22,6 +22,10 @@ Excerpt from optimize cost function in simple.py:
 ```
 ![image](https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/weight_vs_cost.png)
 
-### Regression anaylsis | surface
+### Regression & gradient descent anaylsis 
 
 ![image](https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/gradient_sigmoid_regression_analysis_surface_2.png)
+
+
+### Regression & gradient descent anaylsis (without biasing)
+![image](https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/without_biasing.png)
