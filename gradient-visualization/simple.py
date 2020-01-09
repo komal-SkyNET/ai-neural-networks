@@ -12,11 +12,15 @@ def sigmoid(ip, derivate=False):
 class NeuralNet:
     global sigmoid 
 
-    def __init__(self):
+    def __init__(self, disable_bias=False, bias=10):
         self.inputLayers = 2
         self.outputLayer = 1
-        self.bias = r.random()
+        if not disable_bias:
+            self.bias = r.random()
+        else:
+            self.bias = bias
         self.plot1 = Plot()
+        self.disable_bias = disable_bias
     
     def setup(self):
         self.i = np.array([r.random(), r.random()], dtype=float).reshape(2,)
@@ -35,8 +39,9 @@ class NeuralNet:
             self.w[i] = self.w[i] - 2*dpdw
             i+=1
         #calculate dp/dB
-        dpdB = -1*(desired-self.o) * (sigmoid(self.o, derivate=True)) * -1
-        self.bias = self.bias - 2*dpdB
+        if not self.disable_bias:
+            dpdB = -1*(desired-self.o) * (sigmoid(self.o, derivate=True)) * -1
+            self.bias = self.bias - 2*dpdB
         self.forward_propogate()
         self.plot1.Z_points.append(current_cost)
         self.plot1.W1_points.append(self.w[0])
@@ -76,6 +81,10 @@ plot2.W2_points = n.plot1.W2_points
 plot2.Z_points = n.plot1.Z_points
 plot2.draw_3d_scatter_plot(x_label='weight1', y_label='weight2', z_label='error')
 
+##draw regression line
+plot2.draw_3d_regression_analysis_surface(n.bias)
+
+plt.tight_layout()
 plt.show()
 
 # while True:
@@ -87,5 +96,6 @@ plt.show()
 #     n.i = np.array([ip1, ip2]).reshape(2,)
 #     n.forward_propogate()
 #     print("network output:{}".format(n.o))
-    
+
+#For 0.01 error rate | Network weights:[14.04340991 14.04341878], bias:21.860932213216703
 
