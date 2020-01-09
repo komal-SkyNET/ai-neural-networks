@@ -1,6 +1,4 @@
-## Math 
-
-### Visualizing error/cost function change for partial derivative applied to weight1 & weight2
+## Visualizing error/cost function change for partial derivative applied to weight1 & weight2
 ```
 Z1 = w1s1; Z2 = w2s2
 Zp = Z1 + Z2
@@ -22,10 +20,10 @@ Excerpt from optimize cost function in simple.py:
 ```
 ![image](https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/weight_vs_cost.png)
 
-### Regression & gradient descent anaylsis 
+## Regression & gradient descent anaylsis 
 
 ![image](https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/gradient_sigmoid_regression_analysis_surface_2.png)
 
 
-### Regression & gradient descent anaylsis (without biasing)
+## Regression & gradient descent anaylsis (without biasing)
 ![image](https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/without_biasing.png)
