@@ -19,6 +19,7 @@ Excerpt from optimize cost function in simple.py:
         
 ```
 ## Regression & gradient descent anaylsis 
+PLOT 1 & 2 (blue) - Line / Scatter plot of (Error vs Weights)
 <p align="center"><img src='https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/regression_analysis_surface.gif'/></p>
 
 ![image](https://github.com/komal-SkyNET/ai-neural-networks/blob/master/gradient-visualization/gradient_sigmoid_regression_analysis_surface_2.png)
