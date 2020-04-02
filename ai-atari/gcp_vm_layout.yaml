@@ -1,0 +1,127 @@
+resources:
+- name: tensorflow
+  outputs:
+  - finalValue: evaluate-models
+    name: deployment
+    value: evaluate-models
+  - finalValue: leafy-grammar-272213
+    name: project
+    value: leafy-grammar-272213
+  - finalValue: '4426818924372094110'
+    name: vmId
+    value: $(ref.evaluate-models-vm.id)
+  - finalValue: 35.247.72.177
+    name: vmExternalIP
+    value: $(ref.tensorflow-vm-tmpl.ip)
+  - finalValue: 10.138.0.5
+    name: vmInternalIP
+    value: $(ref.tensorflow-vm-tmpl.internalIP)
+  - finalValue: evaluate-models-vm
+    name: vmName
+    value: evaluate-models-vm
+  - finalValue: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/zones/us-west1-b/instances/evaluate-models-vm
+    name: vmSelfLink
+    value: $(ref.evaluate-models-vm.selfLink)
+  - finalValue: true
+    name: hasExternalIP
+    value: true
+  - finalValue: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/global/networks/default
+    name: mainNetwork
+    value: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/global/networks/default
+  properties:
+    acceleratorCount: 1
+    acceleratorType: nvidia-tesla-k80
+    bootDiskSizeGb: 60
+    bootDiskType: pd-standard
+    externalIP:
+    - EPHEMERAL
+    input_enableProxy: true
+    input_framework: TensorFlow Enterprise 2.1 (CUDA 10.1)
+    input_installNvidiaDriver: true
+    machineType: n1-highmem-2
+    network:
+    - https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/global/networks/default
+    subnetwork:
+    - https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/regions/us-west1/subnetworks/default
+    zone: us-west1-b
+  resources:
+  - name: tensorflow-vm-tmpl
+    outputs:
+    - finalValue: 10.138.0.5
+      name: internalIP
+      value: $(ref.evaluate-models-vm.networkInterfaces[0].networkIP)
+    - finalValue: 35.247.72.177
+      name: ip
+      value: $(ref.evaluate-models-vm.networkInterfaces[0].accessConfigs[0].natIP)
+    properties:
+      bootDiskSizeGb: 60
+      bootDiskType: pd-standard
+      canIpForward: false
+      diskType: pd-standard
+      disks: []
+      externalIPs:
+      - EPHEMERAL
+      guestAccelerators:
+      - acceleratorCount: 1
+        acceleratorType: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/zones/us-west1-b/acceleratorTypes/nvidia-tesla-k80
+      instanceName: evaluate-models-vm
+      localSSDs: 0
+      machineType: n1-highmem-2
+      metadata:
+        items:
+        - key: proxy-mode
+          value: project_editors
+        - key: install-nvidia-driver
+          value: 'True'
+        - key: status-config-url
+          value: $(ref.software-status.config-url)
+        - key: status-variable-path
+          value: $(ref.software-status.variable-path)
+        - key: status-uptime-deadline
+          value: 600
+        - key: google-monitoring-enable
+          value: '0'
+        - key: google-logging-enable
+          value: '0'
+      networks:
+      - https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/global/networks/default
+      provideBoot: true
+      serviceAccounts:
+      - email: default
+        scopes:
+        - https://www.googleapis.com/auth/cloud.useraccounts.readonly
+        - https://www.googleapis.com/auth/devstorage.read_only
+        - https://www.googleapis.com/auth/logging.write
+        - https://www.googleapis.com/auth/monitoring.write
+        - https://www.googleapis.com/auth/cloudruntimeconfig
+        - https://www.googleapis.com/auth/compute
+      sourceImage: https://www.googleapis.com/compute/v1/projects/click-to-deploy-images/global/images/tf2-2-1-cu101-20200130
+      subnetworks:
+      - https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/regions/us-west1/subnetworks/default
+      tags:
+        items:
+        - evaluate-models-deployment
+      zone: us-west1-b
+    resources:
+    - name: evaluate-models-vm
+      type: compute.v1.instance
+    type: vm_instance.py
+  - name: software-status
+    outputs:
+    - finalValue: https://runtimeconfig.googleapis.com/v1beta1/projects/leafy-grammar-272213/configs/evaluate-models-config
+      name: config-url
+      value: https://runtimeconfig.googleapis.com/v1beta1/projects/leafy-grammar-272213/configs/evaluate-models-config
+    - finalValue: status
+      name: variable-path
+      value: status
+    properties:
+      timeout: 600
+      waiterDependsOn:
+      - evaluate-models-vm
+    resources:
+    - name: evaluate-models-config
+      type: runtimeconfig.v1beta1.config
+    - name: evaluate-models-software
+      type: runtimeconfig.v1beta1.waiter
+    type: software_status.py
+  type: tensorflow.jinja

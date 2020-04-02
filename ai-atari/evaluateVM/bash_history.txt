@@ -1,0 +1,36 @@
+1  ls
+    2  systemctl status jupyter
+    3  cat /usr/local/s
+    4  systemctl status jupyter -l
+    5  journalctl -u jupyter
+    6  journalctl -u jupyter -l
+    7  systemctl status -l jupyter
+    8  cat /home/jupyter/.jupyter/jupyter_notebook_config.py
+    9  vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+   10  sudo su jupyter
+   11  systemctol status jupyter
+   12  systemctl status jupyter
+   13  cat /home/jupyter/.jupyter/jupyter_notebook_config.p
+   14  cat /home/jupyter/.jupyter/jupyter_notebook_config.py
+   15  vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+   16  sudo vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+   17  sudo systemctl restart jupyter
+   18  journalctl -u jupyter -l
+   19  journalctl -u jupyter -l -f
+   20  sudo apt-get install ffmpeg
+   21  journalctl -u jupyter -l -f
+   22  df
+   23  top
+   24  nvidia-smi i
+   25  nvidia-smi
+   26  ls
+   27  ps -axf
+   28  cd /home/jupyter/
+   29  ls
+   30  ls -la
+   31  ls -lash
+   32  journalctl -u jupyter -l -f
+   33  ls
+   34  history
+   35  sudo su jupyter
+   36  history

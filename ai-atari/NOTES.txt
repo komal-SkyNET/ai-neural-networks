@@ -1,0 +1,24 @@
+dqn_tf1_breakout_gpu.py was written for tensorflow 1.x (1.13-15) and was modified to run on tensorflow 2.1 on deep learning VM on GCP with GPUs(P100/K80). The modification was simple - thanks to tf.compat.v1. 
+
+The run lasted for 4-5 days running on p100 on deep learning vm. It was able to complete 90K episode over 138 hours. I suspect it could have performed better if 'fire' button was force pressed after loss of life, so that ball could've have dropped little sooner thereby saving time. But I only found after 3 days into training, so didn't want interrupt. 
+
+The tensorboard logs have been copied to study and analyze the run. The tar of the entire directory on the VM has been copied as well to reproduce the state (this is mainly because it's quite tricky to get all the GPU drivers and making/building tensorflow to work with that GPU)
+
+The training was done with no render and models saved were used on a similar machine to run gym in video recording mode to generate actual plays using the trained model. This VM was named evaluateVM and was accessed using jupyter note book for ease of use. The evaluate VM files are inside evaluateVM folder. 
+
+MACOS: Resizing eval vids: 
+>ffmpeg -i 59_rew.mp4 -vf scale=400:520 59.mp4
+
+LOGS from before ending the run due to GPU credits exhaustion. 
+reward_avg=16.0, reward_min=5.0, reward_max=40.0, epsilon=0.31060173902890315
+ 16%|#########3                                                  | 77999/500000 [139:10:22<1645:19:00, 14.04s/episodes]reward_avg=19.16, reward_min=4.0, reward_max=53.0, epsilon=0.31036887331369334
+ 16%|#########3                                                  | 78049/500000 [139:21:21<1759:17:40, 15.01s/episodes]reward_avg=17.02, reward_min=5.0, reward_max=40.0, epsilon=0.31013618218360167
+ 16%|#########3                                                  | 78092/500000 [139:30:42<1605:37:06, 13.70s/episodes]
+
+Upon ending- analyze why?
+^Csaving model & exiting
+ 16%|#########5                                                   | 78100/500000 [139:32:34<753:49:06,  6.43s/episodes]
+Exception ignored in: <bound method ALEInterface.__del__ of <atari_py.ale_python_interface.ALEInterface object at 0x7fd5a048fb38>>
+Traceback (most recent call last):
+  File "/home/399523/.local/lib/python3.5/site-packages/atari_py/ale_python_interface.py", line 354, in __del__
+AttributeError: 'NoneType' object has no attribute 'ALE_del'  
