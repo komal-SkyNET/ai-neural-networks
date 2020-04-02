@@ -17,4 +17,8 @@ Here's the same trained neural network playing Level-2 for the first time. (not 
 
 ![](winning-AI-player-on-new-level.gif)
 
-Thanks to all the dependency libraries!
+## Deep Q learning on atari games (model trained on GCP VMs with GPU accelerators - Nvidia K80, P100)
+
+Deep-Q neural network was used to train atari's breakout. Training was done on GCP VMs to leverage GPU processing - Nvidia k80 and p100 were used. 
+
+![](ai-atari/ai-plays/output.gif)
