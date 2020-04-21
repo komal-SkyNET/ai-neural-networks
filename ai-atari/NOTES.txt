@@ -1,6 +1,11 @@
+Contains two methods of running training, one on GCP deep learning VM on GCP and other on custom VM with manual GPU driver installation for Tesla T4. 
+Latter is simpler and an efficient option. 
+
+GCP_deep_learning_VM:
+
 dqn_tf1_breakout_gpu.py was written for tensorflow 1.x (1.13-15) and was modified to run on tensorflow 2.1 on deep learning VM on GCP with GPUs(P100/K80). The modification was simple - thanks to tf.compat.v1. 
 
-The run lasted for 4-5 days running on p100 on deep learning vm. It was able to complete 90K episode over 138 hours. I suspect it could have performed better if 'fire' button was force pressed after loss of life, so that ball could've have dropped little sooner thereby saving time. But I only found after 3 days into training, so didn't want interrupt. 
+The run lasted for 4-5 days running on p100 on deep learning vm. It was able to complete 90K episode over 138 hours. I suspect it could have performed better if 'fire' button was force pressed after loss of life, so that ball could've have dropped little sooner thereby saving time. But I only found after 3 days into training, so didn't want to interrupt. 
 
 The tensorboard logs have been copied to study and analyze the run. The tar of the entire directory on the VM has been copied as well to reproduce the state (this is mainly because it's quite tricky to get all the GPU drivers and making/building tensorflow to work with that GPU)
 
@@ -22,3 +27,13 @@ Exception ignored in: <bound method ALEInterface.__del__ of <atari_py.ale_python
 Traceback (most recent call last):
   File "/home/399523/.local/lib/python3.5/site-packages/atari_py/ale_python_interface.py", line 354, in __del__
 AttributeError: 'NoneType' object has no attribute 'ALE_del'  
+
+When resuming to train models, remember to set the correct epsilon value
+
+Nvidia Tesla T4 GPU VM:
+Create VM -> Add Tesla T4 GPU 
+Manually install GPU drivers (follow Tensorflow site reference(https://www.tensorflow.org/install/gpu), GCP's reference just doesn't work properly)
+Use 2.2.0-rc0 tensorflow (2.2.0 had an issue that was fixed in rc0)
+To evaluate & render video, use GCP, AI Platform -> Notebook (choose with GPU - preferably Tesla T4). Tesla T4's perf was identical to k80s while also being significantly cheaper.
+Pass the model from training to evaluate VM
+

@@ -1,0 +1,444 @@
+    1  python
+    2  python3.7
+    3  python3 --version
+    4  sudo apt-get install python3
+    5  sudo apt-get list 
+    6  sudo apt-get update
+    7  pkg install python3
+    8  ls
+    9  python3
+   10  nvdisasm 
+   11  pip freeze | grep tensor
+   12  exit
+   13  ls
+   14  mkdir deep1
+   15  rm deep1/
+   16  rm -rf deep1/
+   17  ls
+   18  python3 -m venv venv
+   19  suod python3 -m venv venv
+   20  sudo suod python3 -m venv venv
+   21  sudo apt-get install python3-venv
+   22  ls
+   23  vim requirements.txt 
+   24  ls
+   25  rm -rf venv
+   26  ls
+   27  python3 -m venv venv 
+   28  source venv/bin/activate
+   29  pip install -r requirements.txt 
+   30  vim requirements.txt 
+   31  pip install matplotlib
+   32  pip install matplotlib --help
+   33  pip install matplotlib --no-cache-dir
+   34  pip install -r requirements.txt 
+   35  vim requirements.txt 
+   36  pip install -r requirements.txt 
+   37  python3 dqn_tf1_breakout.py 
+   38  vim dqn_tf1_breakout.py 
+   39  python3 dqn_tf1_breakout.py 
+   40  vim dqn_tf1_breakout.py 
+   41  python3 dqn_tf1_breakout.py 
+   42  pip install tensorflow-gpu
+   43  python3 dqn_tf1_breakout.py 
+   44  vim dqn_tf1_breakout.py 
+   45  python3 dqn_tf1_breakout.py 
+   46  python3
+   47  python3 dqn_tf1_breakout.py 
+   48  pip freeze | grep tensor
+   49  exit
+   50  ls
+   51  tensorboard --logdir=logs/ --help
+   52  exit
+   53  ls
+   54  vim dqn_tf1_breakout_gpu1.py
+   55  python3 dqn_tf1_breakout_gpu1.py
+   56  ls
+   57  cat requirements.txt 
+   58  vim dqn_tf1_breakout_gpu1.py
+   59  python3 dqn_tf1_breakout_gpu1.py
+   60  vim dqn_tf1_breakout_gpu1.py
+   61  python3 dqn_tf1_breakout_gpu1.py
+   62  vim dqn_tf1_breakout_gpu1.py
+   63  python3 dqn_tf1_breakout_gpu1.py
+   64  vim dqn_tf1_breakout_gpu1.py
+   65  python3 dqn_tf1_breakout_gpu1.py
+   66  vim dqn_tf1_breakout_gpu1.py
+   67  vim dqn_tf1_breakout_gpu.py
+   68  python3 dqn_tf1_breakout_gpu.py
+   69  vim dqn_tf1_breakout_gpu.py
+   70  python3 dqn_tf1_breakout_gpu.py
+   71  mkdir models-breakout
+   72  python3 dqn_tf1_breakout_gpu.py
+   73  vim dqn_tf1_breakout_gpu.py
+   74  python3 dqn_tf1_breakout_gpu.py
+   75  vim dqn_tf1_breakout_gpu.py
+   76  python3 dqn_tf1_breakout_gpu.py
+   77  vim dqn_tf1_breakout_gpu.py
+   78  python3 dqn_tf1_breakout_gpu.py
+   79  vim dqn_tf1_breakout_gpu.py
+   80  python3 dqn_tf1_breakout_gpu.py
+   81  vim dqn_tf1_breakout_gpu.py
+   82  python3 dqn_tf1_breakout_gpu.py
+   83  vim dqn_tf1_breakout_gpu.py
+   84  python3 dqn_tf1_breakout_gpu.py
+   85  vim dqn_tf1_breakout_gpu.py
+   86  python3 dqn_tf1_breakout_gpu.py
+   87  vim dqn_tf1_breakout_gpu.py
+   88  python3 dqn_tf1_breakout_gpu.py
+   89  vim dqn_tf1_breakout_gpu.py
+   90  python3 dqn_tf1_breakout_gpu.py
+   91  pip uninstall gym[atari]
+   92  pip install gym[atari]
+   93  python3 dqn_tf1_breakout_gpu.py
+   94  ls
+   95  cd models-breakout/
+   96  ls
+   97  rm -rf
+   98  pip uninstall gym
+   99  pip install gym[atari]
+  100  rm -rf
+  101  ls
+  102  python3 dqn_tf1_breakout_gpu.py
+  103  cd ..
+  104  python3 dqn_tf1_breakout_gpu.py
+  105  ls
+  106  cd models-breakout/
+  107  ls
+  108  ls -latr
+  109  exit
+  110  ls
+  111  exit
+  112  pip freeaze
+  113  pip freez
+  114  pip freeze
+  115  pip freeze | grep tensor
+  116  ps -ef
+  117  vim dqn_tf1_breakout_gpu.py
+  118  python3 dqn_tf1_breakout_gpu.py
+  119  xvfb-run -s "-screen 0 1400x900x24" python3 dqn_tf1_breakout_gpu.py
+  120  apt-get install python-opengl
+  121  sudo apt-get install python-opengl
+  122  xvfb-run -s "-screen 0 1400x900x24" python3 dqn_tf1_breakout_gpu.py
+  123  ls
+  124  tensorboard --help
+  125  tensorboard --logdir=logs/ --port 80
+  126  sudo tensorboard --logdir=logs/ --port 443
+  127  tensorboard --logdir=logs/ 
+  128  tensorboard --logdir=logs/ --port 6007
+  129  tensorboard --logdir=logs/ --port 6007 --bind-all
+  130  tensorboard --logdir=logs/ --port 6007 --bind_all
+  131  pip freeze | grep tensor
+  132  vim requirements.txt 
+  133  source venv/bin/activate
+  134  pip install -r requirements.txt 
+  135  vim requirements.txt 
+  136  pip install -r requirements.txt 
+  137  python --version
+  138  deactivate 
+  139  vim requirements.txt 
+  140  pip install -r requirements.txt 
+  141  python3 dqn_tf1_breakout.py 
+  142  vim dqn_tf1_breakout.py 
+  143  python3 dqn_tf1_breakout.py 
+  144  vim dqn_tf1_breakout.py 
+  145  pip install keras
+  146  vim dqn_tf1_breakout.py 
+  147  cat dqn_tf1_breakout.py 
+  148  vim dqn_tf_gpu.py
+  149  cat > dqn_tf1_breakout_gpu.py
+  150  python3 dqn_tf1_breakout_gpu.py 
+  151  vim dqn_tf1_breakout_gpu.py 
+  152  python3 dqn_tf1_breakout_gpu.py 
+  153  vim dqn_tf1_breakout_gpu.py 
+  154  python3 dqn_tf1_breakout_gpu.py 
+  155  vim dqn_tf1_breakout_gpu.py 
+  156  python3 dqn_tf1_breakout_gpu.py 
+  157  vim dqn_tf1_breakout_gpu.py 
+  158  python3 dqn_tf1_breakout_gpu.py 
+  159  vim dqn_tf1_breakout_gpu.py 
+  160  python3 dqn_tf1_breakout_gpu.py 
+  161  vim dqn_tf1_breakout_gpu.py 
+  162  python3 dqn_tf1_breakout_gpu.py 
+  163  vim dqn_tf1_breakout_gpu.py 
+  164  python3 dqn_tf1_breakout_gpu.py 
+  165  python3
+  166  vim dqn_tf1_breakout_gpu.py 
+  167  python3 dqn_tf1_breakout_gpu.py 
+  168  vim dqn_tf1_breakout_gpu1.py 
+  169  python3 dqn_tf1_breakout_gpu1.py
+  170  cat > dqn_tf1_breakout_gpu1.py 
+  171  python3 dqn_tf1_breakout_gpu1.py
+  172  cat > dqn_tf1_breakout_gpu1.py 
+  173  python3 dqn_tf1_breakout_gpu1.py
+  174  cat > dqn_tf1_breakout_gpu1.py 
+  175  python3 dqn_tf1_breakout_gpu1.py
+  176  vim dqn_tf1_breakout_gpu.py 
+  177  vim dqn_tf1_breakout_gpu1.py 
+  178  screen -list
+  179  screen -r 1873.run
+  180  top
+  181  free -m
+  182  free -g
+  183  ls
+  184  cd logs
+  185  ls
+  186  ls -latr
+  187  ls
+  188  find . -mmin 5
+  189  find . -mmin 10
+  190  find . -mmin 20
+  191  find . -mmin 1000
+  192  find . -amin 1000
+  193  find . -amin 10
+  194  find --help
+  195  man find
+  196  find . -amin 5
+  197  find . -amin 10
+  198  ls -latr
+  199  rm -rf Breakout-158520*
+  200  ls -latr
+  201  rm -rf Breakout-1585210*
+  202  rm -rf Breakout-1585212532 Breakout-1585213812 Breakout-1585213855 
+  203  exit
+  204  ls
+  205  cat dqn_tf1_breakout_gpu
+  206  cat dqn_tf1_breakout_gpu.py 
+  207  python3 dqn_tf1_breakout_gpu1.py
+  208  python3 dqn_tf1_breakout_gpu.py
+  209  python3 dqn_tf1_breakout_gpu.py --load-model models-breakout/breakout-158521
+  210  screen -S run
+  211  screen -S tensorboard 
+  212  screen -r tensorboard 
+  213  screen -r run
+  214  35.247.67.175
+  215  screen -r run
+  216  screen -list
+  217  screen -r tensorboard 
+  218  screen -r run
+  219  ls
+  220  cat dqn_tf1_breakout_gpu.py
+  221  cat dqn_tf1_breakout_gpu1.py
+  222  ls
+  223  python3 dqn_tf1_breakout_gpu.py 
+  224  vim dqn_tf1_breakout_gpu1.py 
+  225  !
+  226  vim dqn_tf1_breakout_gpu.py 
+  227  python3 dqn_tf1_breakout_gpu.py 
+  228  tensorboard --logdir=logs/ --port 6007 --bind_all
+  229  nvdisasm
+  230  screen -S run
+  231  ls
+  232  cat > dqn_tf2_breakout_gpu.py
+  233  python3 dqn_tf2_breakout_gpu.py 
+  234  python3 dqn_tf1_breakout_gpu.py 
+  235  cat dqn_tf1_breakout_gpu.py 
+  236  python3 dqn_tf2_breakout_gpu.py --gpu 1
+  237  cat > dqn_tf2_breakout_gpu.py
+  238  python3 dqn_tf2_breakout_gpu.py --gpu 1
+  239  cat dqn_tf1_breakout_gpu.py 
+  240  vim test.py
+  241  python test.py 
+  242  pip install gym 
+  243  python test.py 
+  244  cat test.py
+  245  python3 test.py 
+  246  python3
+  247  vim test.py 
+  248  python3 test.py 
+  249  python3
+  250  vim test.py 
+  251  python3 test.py 
+  252  vim test.py 
+  253  python3 test.py 
+  254  rm test.py 
+  255  ls
+  256  python3 dqn_tf1_breakout_gpu.py
+  257  nvdisasm 
+  258  python3 dqn_tf1_breakout_gpu.py
+  259  screen -list 
+  260  screen -S run
+  261  screen -S tensorb
+  262  screen -S run
+  263  screen -S tensorb
+  264  screen -S run
+  265  free -g
+  266  reboot
+  267  screen -S run
+  268  rebootr
+  269  sudo reboot
+  270  ls
+  271  ps -ef
+  272  cd logs/
+  273  rm -rf Breakout-15852
+  274  ls
+  275  rm -rf Breakout-15852*
+  276  ls
+  277  cd ..
+  278  rm -rf models
+  279  ls
+  280  cd models-breakout/
+  281  rm -rf *
+  282  ls
+  283  cd ..
+  284  ls
+  285  ip install matplotlib --no-cache-dir
+  286  screen -S run
+  287  ls
+  288  cd logs 
+  289  ls
+  290  ls -latr
+  291  rm Breakout-1585229012  Breakout-1585229055 Breakout-1585229113
+  292  rm -rf Breakout-1585229012  Breakout-1585229055 Breakout-1585229113
+  293  cd ..
+  294  screen -S tensorb
+  295  screen -list
+  296  screen -r run
+  297  exit
+  298  nvidia-smi
+  299  screen -list
+  300  exit
+  301  screen -r run
+  302  top
+  303  free -g
+  304  screen -r run
+  305  screen -r run
+  306  cd /opt/deeplearning/binaries/tensorflow/
+  307  ls
+  308  screen -r run
+  309  d /opt/deeplearning/binaries/tensorflow/screen -list 
+  310  screen -list 
+  311  screen -r run
+  312  screen -list
+  313  screen -r run
+  314  ls
+  315  screen -r run
+  316  ls
+  317  cd models-breakout/
+  318  ls
+  319  ls -la
+  320  screen -r run
+  321  ip addr
+  322  exit
+  323  df
+  324  cd models-breakout/
+  325  ls
+  326  df . 
+  327  du . -sh
+  328  du ./* -sh
+  329  ps -ef 
+  330  ps -axef 
+  331  cat dqn_tf1_breakout_gpu.py 
+  332  cat dqn_tf1_breakout_gpu.py  | grep gpu
+  333  pip freeze | grep keras 
+  334  pip freeze 
+  335  ps -af | grep jupy
+  336  ps -a | grep jupy
+  337  ps -axf | grep jupy
+  338  python3
+  339  screen -r run
+  340  jupyter-notebook --help
+  341  jupyter-notebook list 
+  342  jupyter-notebook --port 8888 --no-browser 
+  343  cd /usr/local/share/jupyter/lab/settings/
+  344  ls
+  345  cd ..
+  346  ls
+  347  man jupyter-notebook
+  348  jupyter-notebook --help
+  349  ps -axf | grep jupy
+  350  cat /home/jupyter/.jupyter/jupyter_notebook_config.py 
+  351  vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+  352  sudo vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+  353  jupyter-notebook --port 8888 --no-browser 
+  354  jupyter-notebook --port 8888 --no-browser  --config /home/jupyter/.jupyter/jupyter_notebook_config.py
+  355  sudo jupyter-notebook --port 8888 --no-browser  --config /home/jupyter/.jupyter/jupyter_notebook_config.py
+  356  vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+  357  jupyter-notebook --port 8888 --no-browser  --config /home/jupyter/.jupyter/jupyter_notebook_config.py
+  358  vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+  359  sudo su jupyter
+  360  ps -axf 
+  361  cat /home/jupyter/.jupyter/jupyter_notebook
+  362  cat /home/jupyter/.jupyter/jupyter_notebook_config.py
+  363  sudo vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+  364  cat /home/jupyter/.jupyter/jupyter_notebook_config.py
+  365  netstat -aln
+  366  netstat -aln | grep 8080
+  367  lsof
+  368  netstat -aln 
+  369  ls
+  370  ps -axf | grep jupyter
+  371  systemctl status jupyter
+  372  vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+  373  sudo vim /home/jupyter/.jupyter/jupyter_notebook_config.py
+  374  systemctl restart jupyter
+  375  sudo systemctl restart jupyter
+  376  systemctl status jupyter
+  377  top
+  378  jupyter notebook list 
+  379  screen -r run
+  380  ls
+  381  vim dqn_evaluate.py
+  382  ./dqn_evaluate.py
+  383  python3 ./dqn_evaluate.py
+  384  vim dqn_evaluate.py
+  385  screen -r run
+  386  man vim
+  387  !
+  388  systemctl stop jupyter
+  389  sudo systemctl stop jupyter
+  390  screen -r run
+  391  screen -r run
+  392  cd models-breakout/
+  393  ls
+  394  ls -latr
+  395  ls -lah
+  396  screen -r run
+  397  exit
+  398  screen -r run
+  399  exit
+  400  pwd
+  401  ls
+  402  cat logs
+  403  cd logs
+  404  ls
+  405  cd ..
+  406  ls
+  407  ps -axf | grep python
+  408  screen -r run
+  409  tar -cvf dqn_breakout_gcp.tar /home/399523
+  410  ls
+  411  ls -lash
+  412  mkdir transfer
+  413  cp models-breakout/ transfer/
+  414  cp -r models-breakout/ transfer/
+  415  p -r models-breakout/ transfer/cdls .
+  416  ls
+  417  ls transfer
+  418  cp -r logs transfer/
+  419  cd transfer 
+  420  ls
+  421  ls logs/
+  422  cp dqn_tf1_breakout.py transfer/
+  423  cd ..
+  424  cp dqn_tf1_breakout_gpu.py transfer/
+  425  cp requirements.txt transfer/
+  426  cp wrapper.py transfer/
+  427  rm *.tar
+  428  cp dqn_evaluate.py transfer/
+  429  ls
+  430  cd tras
+  431  cd transfer/
+  432  ls
+  433  cd ..
+  434  tar -cvf transfer.tar transfer/
+  435  ls
+  436  ls -la
+  437  ls -lah
+  438  cd models-breakout/
+  439  ls
+  440  ls -la
+  441  ls -latr
+  442  cd ..
+  443  ls
+  444  history > bash_history.txt

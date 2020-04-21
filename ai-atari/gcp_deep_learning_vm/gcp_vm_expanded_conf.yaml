@@ -1,0 +1,79 @@
+resources:
+- name: evaluate-models-vm
+  properties:
+    canIpForward: false
+    disks:
+    - autoDelete: true
+      boot: true
+      deviceName: tensorflow-vm-tmpl-boot-disk
+      initializeParams:
+        diskSizeGb: 60
+        diskType: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/zones/us-west1-b/diskTypes/pd-standard
+        sourceImage: https://www.googleapis.com/compute/v1/projects/click-to-deploy-images/global/images/tf2-2-1-cu101-20200130
+      type: PERSISTENT
+    guestAccelerators:
+    - acceleratorCount: 1
+      acceleratorType: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/zones/us-west1-b/acceleratorTypes/nvidia-tesla-k80
+    machineType: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/zones/us-west1-b/machineTypes/n1-highmem-2
+    metadata:
+      items:
+      - key: proxy-mode
+        value: project_editors
+      - key: install-nvidia-driver
+        value: 'True'
+      - key: status-config-url
+        value: https://runtimeconfig.googleapis.com/v1beta1/projects/leafy-grammar-272213/configs/evaluate-models-config
+      - key: status-variable-path
+        value: status
+      - key: status-uptime-deadline
+        value: 600
+      - key: google-monitoring-enable
+        value: '0'
+      - key: google-logging-enable
+        value: '0'
+    networkInterfaces:
+    - accessConfigs:
+      - name: Interface 0 External NAT
+        type: ONE_TO_ONE_NAT
+      name: Interface 0
+      network: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/global/networks/default
+      subnetwork: https://www.googleapis.com/compute/v1/projects/leafy-grammar-272213/regions/us-west1/subnetworks/default
+    scheduling:
+      onHostMaintenance: terminate
+    serviceAccounts:
+    - email: default
+      scopes:
+      - https://www.googleapis.com/auth/cloud.useraccounts.readonly
+      - https://www.googleapis.com/auth/devstorage.read_only
+      - https://www.googleapis.com/auth/logging.write
+      - https://www.googleapis.com/auth/monitoring.write
+      - https://www.googleapis.com/auth/cloudruntimeconfig
+      - https://www.googleapis.com/auth/compute
+    tags:
+      items:
+      - evaluate-models-deployment
+    zone: us-west1-b
+  type: compute.v1.instance
+- name: evaluate-models-config
+  properties:
+    config: evaluate-models-config
+    description: Holds software readiness status for evaluate-models
+  type: runtimeconfig.v1beta1.config
+- metadata:
+    dependsOn:
+    - evaluate-models-vm
+    - evaluate-models-config
+  name: evaluate-models-software
+  properties:
+    failure:
+      cardinality:
+        number: 1
+        path: status/failure
+    parent: $(ref.evaluate-models-config.name)
+    success:
+      cardinality:
+        number: 1
+        path: status/success
+    timeout: 600s
+    waiter: software
+  type: runtimeconfig.v1beta1.waiter
