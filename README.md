@@ -21,4 +21,7 @@ Here's the same trained neural network playing Level-2 for the first time. (not 
 
 Deep-Q neural network was used to train atari's breakout. Training was done on GCP VMs to leverage GPU processing - Nvidia k80 and p100 were used. 
 
-![](ai-atari/ai-plays/output.gif)
+### Early stages in training - learns to play, but doesn't really aim yet
+![](ai-atari/nvidia_tesla_t4_gpu_vm/ai-plays/early_stages_in_training.gif)
+### Evolved model - Aims and learns to dig tunnels 
+![](ai-atari/nvidia_tesla_t4_gpu_vm/ai-plays/tunnel_moment.gif)
