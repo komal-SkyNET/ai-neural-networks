@@ -37,3 +37,5 @@ Use 2.2.0-rc0 tensorflow (2.2.0 had an issue that was fixed in rc0)
 To evaluate & render video, use GCP, AI Platform -> Notebook (choose with GPU - preferably Tesla T4). Tesla T4's perf was identical to k80s while also being significantly cheaper.
 Pass the model from training to evaluate VM
 
+tensorboard uploaded here: https://tensorboard.dev/experiment/1yrW70A0QHertoJDVZk1ig/#scalars&tagFilter=rew
+
