@@ -25,3 +25,22 @@ Deep-Q neural network was used to train atari's breakout. Training was done on G
 ![](ai-atari/nvidia_tesla_t4_gpu_vm/ai-plays/early_stages_in_training.gif)
 ### Evolved model - Aims and learns to dig tunnels 
 ![](ai-atari/nvidia_tesla_t4_gpu_vm/ai-plays/tunnel_moment.gif)
+----
+```
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 32, 20, 20)        8224
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 64, 9, 9)          32832
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 64, 7, 7)          36928
+_________________________________________________________________
+flatten (Flatten)            (None, 3136)              0
+_________________________________________________________________
+dense (Dense)                (None, 512)               1606144
+_________________________________________________________________
+dense_1 (Dense)              (None, 4)                 2052
+=================================================================
+```
