@@ -1,4 +1,7 @@
-  
+"""
+Reference:
+https://github.com/openai/baselines/blob/master/baselines/common/atari_wrappers.py
+"""
 import numpy as np
 import os
 from collections import deque
